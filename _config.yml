@@ -1,18 +1,19 @@
 # Site settings
-title: KarlBowden.com
-email: karl@karlbowden.com
-description: > # this means to ignore newlines until "baseurl:"
-  Brute force engineer. King of Karlsbadia.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://karlbowden.com" # the base hostname & protocol for your site
+title:            KarlBowden.com
+email:            karl@karlbowden.com
+description:      Brute force engineer. King of Karlsbadia.
+baseurl:          ''
+url:              http://karlbowden.com
 twitter_username: karlbowden
 github_username:  agentk
 
 # Build settings
-markdown: kramdown
-permalink: /:categories/:title/
-tag_page_layout: tag_page
-tag_page_dir: tag
+markdown:            kramdown
+permalink:           /:categories/:title/
+tag_page_layout:     tag_page
+tag_page_dir:        tag
 tag_permalink_style: /:title/
-include: ['_pages']
+include:             ['_pages']
 relative_permalinks: false
+paginate:            10
+paginate_path:       '/page:num/'

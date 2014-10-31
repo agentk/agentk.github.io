@@ -1,14 +1,13 @@
 ---
 layout: default
 title: Blog
-permalink: /
 ---
 <div class='home'>
     <h1 class='page-title'>Latest posts</h1>
     <ul class='post-list'>
-        {% for post in site.posts %}
+        {% for post in paginator.posts %}
         {% include post-item.html %}
         {% endfor %}
     </ul>
-    <p class='rss-subscribe'>subscribe <a href='{{ '/feed.xml' | prepend: site.baseurl }}'>via RSS</a></p>
+    {% include pagination-links.html %}
 </div>

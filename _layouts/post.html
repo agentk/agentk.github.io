@@ -1,6 +1,6 @@
 ---
 layout: default
-comments: false
+comments: true
 sharing:  false
 ---
 <div class="post">
@@ -11,4 +11,10 @@ sharing:  false
     <article class="post-content">
         {{ content }}
     </article>
+    <p class='post-item-tags'>
+        {% for tag in page.tags %}
+        <a href='{{ tag | tag_url }}' class='post-item-tag'>#{{ tag }}</a>
+        {% endfor %}
+    </p>
+    {% if page.comments %}{% include comments.html %}{% endif %}
 </div>
