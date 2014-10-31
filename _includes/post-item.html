@@ -1,0 +1,15 @@
+<li class='post-list-item{% if post.icon %} has-icon{% endif %}'>
+    {% if post.icon %}<i class='post-icon icon-{{ post.icon }}'></i>{% endif %}
+    <span class='post-list-item-meta'>{{ post.date | date: '%b %-d, %Y' }}</span>
+    <h2 class='post-list-item-title'>
+        <a class='post-list-item-link' href='{{ post.url | prepend: site.baseurl }}'>
+            {{ post.title }}
+        </a>
+    </h2>
+    <p class='post-list-item-description'>{{ post.description }}</p>
+    <p class='post-item-tags'>
+        {% for tag in post.tags %}
+        <a href='{{ tag | tag_url }}' class='post-item-tag'>#{{ tag }}</a>
+        {% endfor %}
+    </p>
+</li>

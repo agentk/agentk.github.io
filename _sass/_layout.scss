@@ -1,0 +1,308 @@
+
+// # Site header
+
+$header-height: 56px;
+
+.site-header {
+    @extend %clearfix;
+    border-bottom: 1px solid $grey-color-light;
+    min-height: $header-height;
+    position: relative;
+    margin-bottom: $spacing-unit;
+    background: $header-background-color;
+    @media #{$medium-up} {
+        margin-bottom: $spacing-unit * 2;
+    }
+}
+
+.site-title {
+    margin-bottom: 0;
+    float: right;
+    height: $header-height;
+    line-height: $header-height;
+
+    > svg {
+        height: $header-height;
+        width: auto;
+        vertical-align: middle;
+        margin-top: 8px;
+    }
+
+    @media #{$medium-up} {
+        float: left;
+        padding: 0 $spacing-unit 0 0;
+    }
+}
+
+.site-nav {
+    float: left;
+    font-family: $heading-font-family;
+    line-height: $header-height;
+}
+
+.menu-trigger {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: $header-height;
+}
+
+.menu-icon {
+    display: block;
+    margin-left: -$spacing-unit;
+    padding-left: $spacing-unit;
+    height: $header-height;
+    color: $grey-color-dark;
+
+    > svg {
+        width: 18px;
+        height: 15px;
+        path {
+            fill: $grey-color-dark;
+        }
+    }
+
+    .menu-trigger:checked ~ & {
+        &, > svg path {
+            color: $brand-color;
+            fill: $brand-color;
+        }
+    }
+}
+
+.menu-icon,
+.menu-trigger {
+    cursor: pointer;
+    @media #{$medium-up} {
+        display: none;
+    }
+}
+
+.trigger {
+    clear: both;
+    display: none;
+    padding-bottom: 12px;
+    @media #{$medium-up} {
+        margin-left: -10px;
+        padding: 0;
+        display: block;
+    }
+
+    .menu-trigger:checked ~ & {
+        display: block;
+    }
+}
+
+.page-link {
+    color: $text-color;
+    display: block;
+    line-height: 32px;
+
+    &:hover {
+        color: $brand-color;
+        text-decoration: none;
+    }
+
+    @media #{$medium-up} {
+        line-height: $header-height;
+        display: inline-block;
+        padding: 0 10px;
+    }
+}
+
+
+
+// # Site footer
+
+.site-footer {
+    border-top: 1px solid $grey-color-light;
+    padding: $spacing-unit 0;
+    background: $header-background-color;
+}
+
+.footer-heading {
+    font-size: 1.2rem;
+    margin-bottom: $spacing-unit / 2;
+}
+
+.contact-list,
+.social-media-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.contact-list h3 {
+    margin-bottom: 0;
+}
+
+.footer-col-wrapper {
+    font-size: 0.8rem;
+    color: $grey-color;
+    @extend %clearfix;
+    padding: 0 $spacing-unit / 2;
+    margin: 0 auto;
+    max-width: 40rem;
+}
+
+.footer-col {
+    float: left;
+    width: 100%;
+}
+
+.footer-col-1 {
+    @media #{$medium-up} {
+        width: 50%;
+    }
+    @media #{$large-up} {
+        width: 33.3333%;
+    }
+}
+
+.footer-col-2 {
+    @media #{$medium-up} {
+        width: 50%;
+    }
+    @media #{$large-up} {
+        width: 33.3333%;
+    }
+}
+
+.footer-col-3 {
+    @media #{$large-up} {
+        width: 33.3333%;
+    }
+}
+
+
+// # Page content
+
+.page-content {
+    padding: $spacing-unit 0;
+}
+
+.page-title,
+.page-heading,
+.post-header {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    &:after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 1px solid $grey-color-light;
+    }
+}
+
+.post-list {
+    margin-left: 0;
+    list-style: none;
+}
+
+$icon-size: 3rem;
+$icon-padding: 0.5rem;
+.post-list-item {
+    margin-bottom: $spacing-unit;
+    position: relative;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    &:after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 1px solid $grey-color-light;
+    }
+    &.has-icon {
+        padding-right: $icon-size + $icon-padding * 2;
+        @media #{$medium-up} {
+            padding-left: $icon-size + $icon-padding * 4;
+            padding-right: 0;
+        }
+    }
+}
+
+.post-icon {
+    position: absolute;
+    right: $icon-padding;
+    top: 2rem;
+    height: $icon-size;
+    width: $icon-size;
+    font-size: $icon-size;
+    text-align: center;
+    color: $grey-color-light;
+
+    @media #{$medium-up} {
+        right: auto;
+        left: $icon-padding * 2;
+        top: 1rem;
+    }
+
+    &.icon-apple {
+        color: #ccc;
+    }
+    &.icon-command {
+        color: #999;
+    }
+    &.icon-terminal {
+        color: #333;
+    }
+    &.icon-comment {
+        color: $brand-color;
+    }
+}
+
+
+.post-list-item-meta {
+    font-size: 0.8rem;
+    color: $grey-color-light;
+}
+
+.post-list-item-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-list-item-link {
+    color: $text-color;
+}
+
+.post-item-tags {
+    color: $grey-color-light;
+}
+
+.post-item-tag {
+    color: $grey-color-light;
+    font-weight: 400;
+    font-size: 0.8em;
+    &:hover {
+        text-decoration: none;
+        color: $grey-color;
+    }
+}
+
+.post-list-item-description {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+}
+
+.tag-title {
+    color: $grey-color-light;
+}
+
+
+
+// # Posts
+
+.post-title {
+    letter-spacing: -1px;
+}

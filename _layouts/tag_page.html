@@ -1,0 +1,14 @@
+---
+layout:   default
+title:    "Tags"
+date:     2014-10-31
+---
+<div class='tag'>
+    <h1 class='page-title tag-title'>#{{ page.tag }}</h1>
+    <ul class='post-list'>
+        {% for post in page.posts %}
+        {% include post-item.html %}
+        {% endfor %}
+    </ul>
+    <p class='rss-subscribe'>subscribe <a href='{{ '/feed.xml' | prepend: site.baseurl }}'>via RSS</a></p>
+</div>
