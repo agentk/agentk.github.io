@@ -10,11 +10,9 @@
                 Menu
             </label>
             <div class='trigger'>
-                {% for page in site.pages %}
-                    {% if page.title %}
-                        <a class='page-link' href='{{ page.url | prepend: site.baseurl }}'>{{ page.title }}</a>
-                    {% endif %}
-                {% endfor %}
+                {% capture location %}{{ page.url | remove_first:'/' | split:'/' | first }}{% endcapture %}
+                <a class='page-link{% if location == '' %} active{% endif %}' href='{{ '/' | prepend: site.baseurl }}'>Blog</a>
+                <a class='page-link{% if location == 'about' %} active{% endif %}' href='{{ '/about/' | prepend: site.baseurl }}'>About</a>
             </div>
         </nav>
     </div>

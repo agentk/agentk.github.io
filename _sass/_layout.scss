@@ -102,6 +102,10 @@ $header-height: 56px;
     display: block;
     line-height: 32px;
 
+    &.active {
+        color: $brand-color;
+    }
+
     &:hover {
         color: $brand-color;
         text-decoration: none;

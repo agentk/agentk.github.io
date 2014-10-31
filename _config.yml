@@ -1,5 +1,5 @@
 # Site settings
-title: Karl Bowden
+title: KarlBowden.com
 email: karl@karlbowden.com
 description: > # this means to ignore newlines until "baseurl:"
   Brute force engineer. King of Karlsbadia.
@@ -11,7 +11,8 @@ github_username:  agentk
 # Build settings
 markdown: kramdown
 permalink: /:categories/:title/
-
 tag_page_layout: tag_page
 tag_page_dir: tag
 tag_permalink_style: /:title/
+include: ['_pages']
+relative_permalinks: false
