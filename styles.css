@@ -1,0 +1,137 @@
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+body {
+  font: 16px/1.5 Helvetica, Helvetica Neue, Arial;
+  margin: 0;
+  padding: 0 2em;
+}
+
+header,
+article,
+nav,
+footer {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: #c60;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+img {
+  border: 0;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+::-moz-selection {
+  background: #c60;
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: #c60;
+  color: white;
+  text-shadow: none;
+}
+
+header {
+  margin: 4em 0;
+}
+
+header svg {
+  width: 80%;
+  max-width: 220px;
+  margin: 0 auto;
+  display: block;
+}
+
+article {text-align: center;
+  margin: 4em auto;
+  color: #999;
+  max-width: 33em;
+}
+
+span {
+  margin: 0 0.75em;
+}
+
+nav {
+  margin: 4em 0;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+footer {
+  margin: 4em 0;
+  font-size: 0.75em;
+  text-align: center;
+}
+
+footer a {
+  color: #999;
+  text-decoration: none;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em auto;
+  max-width: 9em;
+}
+
+.link {
+  text-decoration: none;
+  display: block;
+}
+
+.item {
+  text-decoration: none;
+  display: block;
+}
+
+@media only screen and (min-width: 480px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 1140px) {
+  body {
+    font-size: 22px;
+  }
+}
