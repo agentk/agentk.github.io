@@ -1,0 +1,219 @@
+/*
+
+    Basic styling
+
+*/
+body {
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  color: $text-color;
+  margin: 0;
+  padding: 0 2em;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+}
+
+
+/*
+
+    Basic resets for HTML5 compatibility
+
+*/
+header,
+article,
+aside,
+nav,
+footer {
+  display: block;
+}
+
+
+
+/*
+
+    Text selection styling
+
+*/
+::-moz-selection {
+  background: $brand-color;
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: $brand-color;
+  color: white;
+  text-shadow: none;
+}
+
+
+
+/*
+
+    Set `margin-bottom` to maintain vertical rhythm
+
+*/
+// h1, h2, h3, h4, h5, h6,
+// p, blockquote, pre,
+// ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+}
+
+
+
+/*
+
+    Images
+
+*/
+img, svg {
+    border: 0;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+
+
+/*
+
+    Figures
+
+*/
+figure {
+    margin-left: 0;
+    margin-right: 0;
+
+    > img {
+        display: block;
+    }
+}
+
+figcaption {
+    font-size: $small-font-size;
+}
+
+
+
+/*
+
+    Lists
+
+*/
+ul, ol {
+    padding-left: 2rem;
+}
+
+li {
+    > ul,
+    > ol {
+         margin-bottom: 0;
+    }
+}
+
+
+
+/*
+
+    Headings
+
+*/
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+
+/*
+
+    Links
+
+*/
+a {
+    color: $brand-color;
+    text-decoration: none;
+
+    &:active,
+    &:hover {
+        color: darken($brand-color, 15%);
+        outline: 0;
+        text-decoration: underline;
+    }
+}
+
+
+
+/*
+
+    Blockquotes
+
+*/
+blockquote {
+    color: $grey-color;
+    border-left: 5px solid $grey-color-light;
+    padding: $spacing-unit / 8 $spacing-unit / 2;
+    margin: 0;
+}
+
+
+
+/*
+
+    Code formatting
+
+*/
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid $grey-color-light;
+    border-radius: 3px;
+    background: #f6f6f6;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: auto;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+
+/*
+
+    Content resizing
+
+*/
+@media only screen and (min-width: 480px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 1140px) {
+  body {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,33 @@
+
+.site-header {
+
+    margin: 4em 0;
+
+    svg {
+      width: 80%;
+      max-width: 220px;
+      margin: 0 auto;
+      display: block;
+    }
+}
+
+.site-nav {
+    text-align: center;
+
+    &__link {
+        display: inline-block;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
+
+.site-byline {
+    text-align: center;
+    margin: 4em auto;
+    color: $grey-color;
+    max-width: 33em;
+
+    span {
+        margin: 0 0.75em;
+    }
+}

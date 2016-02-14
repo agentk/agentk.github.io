@@ -1,0 +1,46 @@
+
+.footer {
+
+    margin: 4em 0;
+    border-top: 1px solid $grey-color-light;
+
+    &__list {
+        list-style-type: none;
+        padding: 0;
+        margin: 1em auto;
+        max-width: 10em;
+    }
+
+    &__item {
+        text-decoration: none;
+        display: block;
+    }
+
+    &__link {
+        text-decoration: none;
+        display: block;
+
+        svg {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            path {
+                fill: $grey-color;
+            }
+
+        }
+        &:hover svg path {
+            fill: darken($brand-color, 15%);
+        }
+    }
+
+    &__source {
+        margin: 4em 0;
+        font-size: 0.75em;
+        text-align: center;
+    }
+
+    &__source-link {
+        color: $grey-color;
+    }
+}

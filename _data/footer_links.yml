@@ -1,0 +1,27 @@
+- href: /feed.xml
+  icon: icon-rss.svg
+  name: rss
+
+- href: https://medium.com/@karlbo
+  icon: icon-medium.svg
+  name: karlbo
+
+- href: https://github.com/agentk
+  icon: icon-github.svg
+  name: agentk
+
+- href: https://twitter.com/karlbowden
+  icon: icon-twitter.svg
+  name: karlbowden
+
+- href: https://www.facebook.com/karlbowden
+  icon: icon-facebook.svg
+  name: karlbowden
+
+- href: https://www.instagram.com/bearded.sexy/
+  icon: icon-instagram.svg
+  name: bearded.sexy
+
+- href: mailto:karl@bearded.sexy
+  icon: icon-email.svg
+  name: karl@bearded.sexy

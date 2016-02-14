@@ -1,0 +1,23 @@
+
+.content {
+    max-width: $content-width;
+    margin: 0 auto;
+}
+
+
+.post {
+
+    &__title {
+        margin-bottom: 0;
+    }
+
+    &__meta,
+    &__read-more {
+        font-size: 0.8em;
+    }
+
+    &__meta {
+        color: $grey-color;
+        margin: 0;
+    }
+}
