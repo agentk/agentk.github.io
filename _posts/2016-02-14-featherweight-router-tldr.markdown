@@ -2,7 +2,6 @@
 layout: post
 title:  "Featherweight Router tl;dr"
 date:   2016-02-14 15:44:24 +1100
-published: false
 ---
 You don't want to read a full introduction, it's very conceptual and will follow later. And it's too long. This is the opinionated essentials only version you are looking for.
 
@@ -63,7 +62,13 @@ Routers match and set routes, then pass the matched presenters to RouterDelegate
 
 ### RouterDelegate\<T\>
 
-![](/assets/router-delegate.png)
+{% highlight swift %}
+public struct RouterDelegate<T> { // Cliffs notes version
+    public var presenter: T
+    public func set(child: T)
+    public func set(children: [T])
+}
+{% endhighlight %}
 
 Wraps a presenter and provides hooks for updating the display of the current route.
 
@@ -93,16 +98,34 @@ func someLazyPresenter(store: Store) -> RouterDelegate<ViewController> {
 
 Nailed the delegates? Well done. Now get routing!
 
-![](/assets/router.png)
+{% highlight swift %}
+public struct Router<T> { // Cliffs notes version
+    public var delegate: RouterDelegate<T>
+    public var presenter: T
+    public var handlesRoute: String -> Bool
+    public var getStack: String -> [T]?
+    public var setRoute: String -> Void
+    public init(_ delegate: RouterDelegate<T>,
+        handlesRoute: (String -> Bool)? = nil,
+        setRoute: (String -> Void)? = nil,
+        getStack: (String -> [T]?)? = nil)
+}
+{% endhighlight %}
+
+
 
 Oh. Yeah. Not so fast, the base router doesn't actually do anything other than hold a collection of routing functions. Each router type is an extension to the Router. They take a router, modify it's behaviour and return a new router.  Onward then.
 
 
 ### Junction Router =~ UITabBarController
 
-![](/assets/junction-router.png)
-
 ![](/assets/junction.gif)
+
+{% highlight swift %}
+extension Router { // Cliffs notes
+    public func junction(junctions: [Router<T>]) -> Router<T>
+}
+{% endhighlight %}
 
 Router junctions match against child routes and passes the array of direct descendants to setChildren, and the matched route to setChild.
 
@@ -123,9 +146,13 @@ let someJunctionRouter = Router(tabBarPresenter).junction([
 
 ### Stack Router =~ UINavigationController
 
-![](/assets/stack-router.png)
-
 ![](/assets/stack.gif)
+
+{% highlight swift %}
+extension Router { // Cliffs notes
+    public func stack(stack: [Router<T>]) -> Router<T>
+}
+{% endhighlight %}
 
 Router stacks match against children in the same way as junctions, but pass a nested stack of presenters to setChildren instead.
  
@@ -144,13 +171,16 @@ let someStackRouter = Router(navigationPresenter).stack([
 {% endhighlight %}
 
 
-
 ### Named Route -> UIViewController
 
-![](/assets/route.png)
-
-
 And lastly, Named Routes, the endpoints of a matched route. Construct a route with a presenter, then assign it a name and optionally some children.
+
+{% highlight swift %}
+extension Router { // Cliffs notes
+    public func route(pattern: String) -> Router<T>
+    public func route(pattern: String, children: [Router<T>]) -> Router<T>
+}
+{% endhighlight %}
 
 Name patterns are evaluated as regex matches and can be used for selecting id's or values from URL segments. The matched segment values are not passed to the delegate automatically, the ViewModels are expected to derive the values from state.
 

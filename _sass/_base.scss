@@ -129,7 +129,23 @@ li {
 */
 h1 {
     font-size: 2em;
-    margin: 0.67em 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 2em 0 1em;
+    + h1, + h2, + h3, + h4, + h5, + h6 {
+        margin-top: 1em;
+    }
+}
+
+
+
+/*
+
+    Block elements
+
+*/
+p {
+    margin: 1.75em 0;
 }
 
 
@@ -202,18 +218,12 @@ pre {
 */
 @media only screen and (min-width: 480px) {
   body {
-    font-size: 18px;
+    font-size: $base-font-size + 1px;
   }
 }
 
 @media only screen and (min-width: 768px) {
   body {
-    font-size: 20px;
-  }
-}
-
-@media only screen and (min-width: 1140px) {
-  body {
-    font-size: 22px;
+    font-size: $base-font-size + 2px;
   }
 }
