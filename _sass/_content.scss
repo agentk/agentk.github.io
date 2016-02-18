@@ -20,4 +20,11 @@
         color: $grey-color;
         margin: 0;
     }
+
+    &__excerpt {
+        blockquote {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
 }

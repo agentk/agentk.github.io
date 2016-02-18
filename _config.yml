@@ -13,7 +13,27 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://karlbowden.com" # the base hostname & protocol for your site
 permalink: /:title/
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock']
 
-# Build settings
-excerpt_separator: <!--more-->
-markdown: kramdown
+
+#Plugins
+gems:
+  - jekyll-sitemap
+  - redcarpet
+
+
+# Markdown Rendering
+markdown: redcarpet
+markdown_ext:  markdown,mkdown,mkdn,mkd,md
+redcarpet:
+  extensions:
+    - tables
+    - autolink
+    - strikethrough
+    - space_after_headers
+    - with_toc_data
+    - fenced_code_blocks
+    - no_intra_emphasis
+    - footnotes
+    - smart
+

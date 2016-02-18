@@ -3,9 +3,12 @@ layout: post
 title:  "Featherweight Router tl;dr"
 date:   2016-02-14 15:44:24 +1100
 ---
-You don't want to read a full introduction, it's very conceptual and will follow later. And it's too long. This is the opinionated essentials only version you are looking for.
 
-Introducing [Featherweight Router](https://github.com/featherweightlabs/FeatherweightRouter). It's like a washing machine that separates laundry automatically.<!--more-->
+> **Terse** & **Code heavy**. Overview of core classes in Featherweight Router.
+
+You don't want to read [background story](https://karlbowden.com/view-routing-concepts-in-ios/), it's very conceptual, and it's too long. This is the opinionated, essentials only version you are looking for.
+
+Introducing [Featherweight Router](https://github.com/featherweightlabs/FeatherweightRouter). It's like a washing machine that separates laundry automatically.
 
 ## What?
 
@@ -26,7 +29,7 @@ To maintain a separation of concerns.
 
 > Store: dispatcher of actions and returner of state
 
-A Unidirectional State Flow Store. ReSwift etc. Referenced here primarily so we don't have to talk about State any further.
+A [Unidirectional State Flow](https://realm.io/news/benji-encz-unidirectional-data-flow-swift/) Store. [ReSwift](http://reswift.github.io/ReSwift/) etc. Referenced here primarily so we don't have to talk about `State` any further.
 
 
 ### View Controllers
@@ -35,7 +38,7 @@ Nothing router specific here. Just make sure they are testable and isolated. Pas
 
 ### View Presenters
 
-{% highlight swift %}
+```swift
 typealias Presenter = () -> ViewController
 typealias PresenterCreator = T -> Presenter
 
@@ -52,33 +55,33 @@ func somePresenter(store: Store) -> Presenter {
         return viewController
     }
 }
-{% endhighlight %}
+```
 
-Inject the Store and other properties when creating a presenter. The presenter returns a view controller when called.
+Inject the `Store` and other properties when creating a presenter. The presenter returns a view controller when called.
 
 ## How? (_Routing specific_)
 
-Routers match and set routes, then pass the matched presenters to RouterDelegates for display.
+Routers match and set routes, then pass the matched presenters to `RouterDelegate`s for display.
 
-### RouterDelegate\<T\>
+### RouterDelegate: `RouterDelegate<T>`
 
-{% highlight swift %}
-public struct RouterDelegate<T> { // Cliffs notes version
+```swift
+public struct RouterDelegate<T> { // Cliffs notes edition
     public var presenter: T
     public func set(child: T)
     public func set(children: [T])
 }
-{% endhighlight %}
+```
 
 Wraps a presenter and provides hooks for updating the display of the current route.
 
-{% highlight swift %}
+```swift
 let delegate = RouterDelegate(presenter: somePresenter(store))
-{% endhighlight %}
+```
 
-Once you go full router, you'll hardly every use a Presenter with wrapping it in a RouterDelegate, so just go and combine them all in your next refactor.
+Once you _go full router_, you'll hardly every use a Presenter without wrapping it in a `RouterDelegate`. So just go and combine them all in your next refactor.
 
-{% highlight swift %}
+```swift
 func someLazyPresenter(store: Store) -> RouterDelegate<ViewController> {
 
     var viewController: ViewController!
@@ -91,15 +94,15 @@ func someLazyPresenter(store: Store) -> RouterDelegate<ViewController> {
         return viewController
     }
 }
-{% endhighlight %}
+```
 
 
-### Router\<T\>
+### Router: `Router<T>`
 
 Nailed the delegates? Well done. Now get routing!
 
-{% highlight swift %}
-public struct Router<T> { // Cliffs notes version
+```swift
+public struct Router<T> { // Cliffs notes edition
     public var delegate: RouterDelegate<T>
     public var presenter: T
     public var handlesRoute: String -> Bool
@@ -110,26 +113,26 @@ public struct Router<T> { // Cliffs notes version
         setRoute: (String -> Void)? = nil,
         getStack: (String -> [T]?)? = nil)
 }
-{% endhighlight %}
+```
 
 
 
-Oh. Yeah. Not so fast, the base router doesn't actually do anything other than hold a collection of routing functions. Each router type is an extension to the Router. They take a router, modify it's behaviour and return a new router.  Onward then.
+Oh. Yeah. Not so fast, the base router doesn't actually do anything other than hold a collection of routing functions. Each router type is an extension to the `Router`. They take a router, modify it's behaviour and return a new router. Onward then.
 
 
-### Junction Router =~ UITabBarController
+### Junction Router `=~ UITabBarController`
 
 ![](/assets/junction.gif)
 
-{% highlight swift %}
+```swift
 extension Router { // Cliffs notes
     public func junction(junctions: [Router<T>]) -> Router<T>
 }
-{% endhighlight %}
+```
 
 Router junctions match against child routes and passes the array of direct descendants to setChildren, and the matched route to setChild.
 
-{% highlight swift %}
+```swift
 let tabBar = UITabBarController()
 
 let tabBarPresenter = RouterDelegate(
@@ -141,22 +144,22 @@ let someJunctionRouter = Router(tabBarPresenter).junction([
     someRoute,
     anotherRoute,
 ])
-{% endhighlight %}
+```
 
 
-### Stack Router =~ UINavigationController
+### Stack Router `=~ UINavigationController`
 
 ![](/assets/stack.gif)
 
-{% highlight swift %}
+```swift
 extension Router { // Cliffs notes
     public func stack(stack: [Router<T>]) -> Router<T>
 }
-{% endhighlight %}
+```
 
 Router stacks match against children in the same way as junctions, but pass a nested stack of presenters to setChildren instead.
  
-{% highlight swift %}
+```swift
 let stack = UINavigationController()
 
 let navigationPresenter = RouterDelegate(
@@ -168,23 +171,23 @@ let someStackRouter = Router(navigationPresenter).stack([
     someRouteWithChildren,
     anotherRouteWithChildren,
 ])
-{% endhighlight %}
+```
 
 
-### Named Route -> UIViewController
+### Named Route `=~ UIViewController`
 
 And lastly, Named Routes, the endpoints of a matched route. Construct a route with a presenter, then assign it a name and optionally some children.
 
-{% highlight swift %}
+```swift
 extension Router { // Cliffs notes
     public func route(pattern: String) -> Router<T>
     public func route(pattern: String, children: [Router<T>]) -> Router<T>
 }
-{% endhighlight %}
+```
 
-Name patterns are evaluated as regex matches and can be used for selecting id's or values from URL segments. The matched segment values are not passed to the delegate automatically, the ViewModels are expected to derive the values from state.
+Name patterns are evaluated as regex matches and can be used for selecting id's or values from URL segments. The matched segment values are not passed to the delegate automatically, the `ViewModel`s are expected to derive the URL segment values from state.
 
-{% highlight swift %}
+```swift
 
 let someRouter = Router(aDelegate).route("animal", children: [
     Router(aDelegate).route("animal/mammal", children: [
@@ -204,15 +207,15 @@ let someRouter = Router(aDelegate).route("animal", children: [
     ])
 ])
 
-{% endhighlight %}
+```
 
 ## Putting it all together
 
-Last thing left is to scaffold out a shell for our app. The following code only covers the basic use case to illustrate where router creation happens and how it fits into the coordinator and initialisation. We will start from the AppDelegate and work our way down.
+Last thing left is to scaffold out a shell for our app. The following code only covers the basic use case to illustrate where router creation happens and how it fits into the coordinator and initialisation. We will start from the `AppDelegate` and work our way down.
 
-Lines marked with `external` are outside the scope of this intro, as opinions and framework choices for those components will vary per project. As are the `ViewControllers` and `ViewModels`.
+Lines marked with `external` are outside the scope of this intro, as opinions and framework choices for those components will vary per project. As are the `ViewController`s and `ViewModel`s.
 
-{% highlight swift %}
+```swift
 
 import UIKit
 import FeatherweightRouter
@@ -294,6 +297,6 @@ func mockPresenter(store: Store, title: String) -> RouterDelegate<UIViewControll
     return RouterDelegate() { viewController }
 }
 
-{% endhighlight %}
+```
 
-Your move reader. Go flesh out those mockPresenters into something amazing.
+Your move. These `mockPresenters` aren't going to turn into something amazing on their own.
