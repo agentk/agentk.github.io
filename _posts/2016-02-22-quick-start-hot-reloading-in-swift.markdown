@@ -6,8 +6,9 @@ date: 2016-02-22 08:32:12 +1100
 
 > **Beginner**, **Here be dragons** & **Dragons of AWESOME!**. Getting started with hot reloading inside a swift project.
  
-
 Hot-reloading swift classes really is quite simple, thanks to [John Holdsworth](https://github.com/johnno1962)'s AWESOME [Injection Plugin for Xcode](https://github.com/johnno1962/injectionforxcode).
+
+<video src='/assets/swift-hot-reload.mp4' preload='meta' controls></video>
 
 ## The TL;DR:
 
