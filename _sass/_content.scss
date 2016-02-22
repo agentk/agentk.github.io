@@ -7,8 +7,17 @@
 
 .post {
 
+    margin-bottom: 5rem;
+
     &__title {
+        font-size: 1.715rem;
         margin-bottom: 0;
+        a {
+            color: $text-color;
+            &:hover {
+                color: darken($brand-color, 15%);
+            }
+        }
     }
 
     &__meta,
@@ -21,10 +30,29 @@
         margin: 0;
     }
 
+    &__tags {
+        line-height: 1rem;
+        font-size: 0.6em;
+    }
+
+    &__tag {
+        display: inline-block;
+        margin: 0 0.5rem 0.5rem 0;
+        padding: 0.2rem 0.5rem;
+        font-family: $heading-font-family;
+        border: 1px solid darken($brand-color, 20%);
+        border-radius: 2px;
+        color: darken($brand-color, 20%);
+    }
+
     &__excerpt {
         blockquote {
+            margin-top: 1em;
+            margin-bottom: 1em;
             padding-top: 0;
             padding-bottom: 0;
+            border-left: 3px solid rgba(darken($brand-color, 15%), 0.3);
+            border-color: transparent;
         }
     }
 }

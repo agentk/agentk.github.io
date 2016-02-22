@@ -27,6 +27,12 @@ layout: default
             {% endif %}
         </p>
 
+        <p class='post__tags'>
+            {% for tag in page.tags %}
+            <span class='post__tag'>{{ tag }}</span>
+            {% endfor %}
+        </p>
+
     </header>
 
     <div class='post__content'
