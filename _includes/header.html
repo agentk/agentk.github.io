@@ -1,19 +1,17 @@
-
-<header class='site-header'>
-    <h1 class='site-header__title'>
-        <a class='site-header__link'
-            href='{{ site.baseurl }}/' title='{{ site.title }}'>
-            {% include logo.svg %}
-        </a>
-    </h1>
-</header>
-
 {% if page.url == '/' %}
 
+<header class='page-title'>
+  <div class='page-title__container'>
+    <h1 class='page-title__title'>
+      Karl Bowden
+    </h1>
+
     <aside class='site-byline'>
-        <p>Brute force engineer
-            <span>/</span> King of Karlsbadia</p>
-        <p>Professional emojist for <a href='http://mezzanine.co'>mezzanine</a> :simple_smile:</p>
+      <p>Brute force engineer
+        <span>/</span> King of Karlsbadia</p>
+      <p>Professional emojist for <a href='http://mezzanine.co'>mezzanine</a> :simple_smile:</p>
     </aside>
+  </div>
+</header>
 
 {% endif %}

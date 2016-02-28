@@ -2,42 +2,41 @@
 layout: default
 ---
 <article class='post'
-    itemscope
-    itemtype='http://schema.org/BlogPosting'>
+  itemscope
+  itemtype='http://schema.org/BlogPosting'>
 
-    <header class='post__header'>
+  <header class='page-title{% if page.background %} page-title--{{ page.background }}{% endif %}'>
+    <div class='page-title__container'>
 
-        <h1 class='post__title'
-            itemprop='name headline'>
-            {{ page.title }}
-        </h1>
+      <a class='page-title__branding-link' href='{{ site.baseurl }}/' title='{{ site.title }}'>
+        Karl Bowden
+      </a>
 
-        <p class='post__meta'>
-            <time datetime='{{ page.date | date_to_xmlschema }}'
-                itemprop='datePublished'>
-                {{ page.date | date: '%b %-d, %Y' }}
-            </time>
-            {% if page.author %}
-                •
-                <span itemprop='author'
-                    itemscope
-                    itemtype='http://schema.org/Person'>
-                    <span itemprop='name'>{{ page.author }}</span>
-                </span>
-            {% endif %}
-        </p>
+      <h1 class='post__title' itemprop='name headline'>
+        {{ page.title }}
+      </h1>
 
-        <p class='post__tags'>
-            {% for tag in page.tags %}
-            <span class='post__tag'>{{ tag }}</span>
-            {% endfor %}
-        </p>
+      <p class='post__meta'>
+        <time datetime='{{ page.date | date_to_xmlschema }}'
+          itemprop='datePublished'>
+          {{ page.date | date: '%b %-d, %Y' }}
+        </time>
+      </p>
 
-    </header>
+      <p class='post__tags'>
+        {% for tag in page.tags %}
+          <span class='post__tag'>{{ tag }}</span>
+        {% endfor %}
+      </p>
 
-    <div class='post__content'
-        itemprop='articleBody'>
-        {{ content }}
+      <blockquote>{{ page.excerpt }}</blockquote>
+
     </div>
+  </header>
+
+  <div class='content'
+    itemprop='articleBody'>
+    {{ content }}
+  </div>
 
 </article>

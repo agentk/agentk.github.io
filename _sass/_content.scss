@@ -1,58 +1,77 @@
 
 .content {
+  padding: 0 $spacing-unit / 2;
+
+  > * {
+    display: block;
     max-width: $content-width;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  > video {
+    width: 100%;
+    max-width: 100%;
+    @media only screen and (min-width: 1024px) {
+      max-width: 54rem;
+    }
+  }
 }
 
 
 .post {
+  margin-bottom: 5rem;
 
-    margin-bottom: 5rem;
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
 
-    &__title {
-        font-size: 1.715rem;
-        margin-bottom: 0;
-        a {
-            color: $text-color;
-            &:hover {
-                color: darken($brand-color, 15%);
-            }
-        }
+    &:hover {
+      color: $brand-color;
     }
+  }
 
-    &__meta,
-    &__read-more {
-        font-size: 0.8em;
+  &__title {
+    font-size: 1.715rem;
+    @media only screen and (min-width: 768px) {
+      font-size: 2rem;
     }
+    margin-bottom: 0;
+  }
 
-    &__meta {
-        color: $grey-color;
-        margin: 0;
-    }
+  &__meta {
+    font-size: 0.8em;
+    margin: 0;
+  }
 
-    &__tags {
-        line-height: 1rem;
-        font-size: 0.6em;
-    }
+  &__tags {
+    line-height: 1rem;
+    font-size: 0.6em;
+    margin: 0.5rem 0;
+  }
 
-    &__tag {
-        display: inline-block;
-        margin: 0 0.5rem 0.5rem 0;
-        padding: 0.2rem 0.5rem;
-        font-family: $heading-font-family;
-        border: 1px solid darken($brand-color, 20%);
-        border-radius: 2px;
-        color: darken($brand-color, 20%);
-    }
+  &__tag {
+    display: inline-block;
+    margin: 0 0.5rem 0.5rem 0;
+    padding: 0.2rem 0.5rem;
+    font-family: $heading-font-family;
+    border-radius: 2px;
+    border: 1px solid rgba(darken($brand-color, 20%), 0.2);
+    color: darken($brand-color, 20%);
 
-    &__excerpt {
-        blockquote {
-            margin-top: 1em;
-            margin-bottom: 1em;
-            padding-top: 0;
-            padding-bottom: 0;
-            border-left: 3px solid rgba(darken($brand-color, 15%), 0.3);
-            border-color: transparent;
-        }
+    border: 1px solid rgba(#555, 0.2);
+    color: #555;
+  }
+
+  &__excerpt {
+    blockquote {
+      margin-top: 1em;
+      margin-bottom: 1em;
+      padding-top: 0;
+      padding-bottom: 0;
+      border-left: 3px solid rgba(darken($brand-color, 15%), 0.3);
+      border-color: transparent;
     }
+  }
 }

@@ -1,0 +1,99 @@
+.page-title {
+
+  $overlay: linear-gradient(rgba(#000, 0.3), rgba(#000, 0.7));
+
+  background: $site-title-background 50% 50% no-repeat;
+  background-image: $overlay, url(/images/bg/blues.png);
+
+  &--blues    { background-image: $overlay, url(/images/bg/blues.png); }
+  &--brbg     { background-image: $overlay, url(/images/bg/brbg.png); }
+  &--bugn     { background-image: $overlay, url(/images/bg/bugn.png); }
+  &--bupu     { background-image: $overlay, url(/images/bg/bupu.png); }
+  &--gnbu     { background-image: $overlay, url(/images/bg/gnbu.png); }
+  &--greens   { background-image: $overlay, url(/images/bg/greens.png); }
+  &--greys    { background-image: $overlay, url(/images/bg/greys.png); }
+  &--orrd     { background-image: $overlay, url(/images/bg/orrd.png); }
+  &--oranges  { background-image: $overlay, url(/images/bg/oranges.png); }
+  &--prgn     { background-image: $overlay, url(/images/bg/prgn.png); }
+  &--piyg     { background-image: $overlay, url(/images/bg/piyg.png); }
+  &--pubu     { background-image: $overlay, url(/images/bg/pubu.png); }
+  &--pubugn   { background-image: $overlay, url(/images/bg/pubugn.png); }
+  &--puor     { background-image: $overlay, url(/images/bg/puor.png); }
+  &--purd     { background-image: $overlay, url(/images/bg/purd.png); }
+  &--purples  { background-image: $overlay, url(/images/bg/purples.png); }
+  &--rdbu     { background-image: $overlay, url(/images/bg/rdbu.png); }
+  &--rdgy     { background-image: $overlay, url(/images/bg/rdgy.png); }
+  &--rdpu     { background-image: $overlay, url(/images/bg/rdpu.png); }
+  &--rdylbu   { background-image: $overlay, url(/images/bg/rdylbu.png); }
+  &--rdylgn   { background-image: $overlay, url(/images/bg/rdylgn.png); }
+  &--reds     { background-image: $overlay, url(/images/bg/reds.png); }
+  &--spectral { background-image: $overlay, url(/images/bg/spectral.png); }
+  &--ylgn     { background-image: $overlay, url(/images/bg/ylgn.png); }
+  &--ylgnbu   { background-image: $overlay, url(/images/bg/ylgnbu.png); }
+  &--ylorbr   { background-image: $overlay, url(/images/bg/ylorbr.png); }
+  &--ylorrd   { background-image: $overlay, url(/images/bg/ylorrd.png); }
+
+  background-size: cover;
+  color: $site-title-text;
+  padding: 0;
+  margin: 0;
+
+  &__container {
+    margin: 0 auto 5rem;
+    max-width: $content-width;
+    padding: 2rem $spacing-unit / 2;
+  }
+
+  &__branding-link {
+    display: block;
+    padding: 0.2rem 0.5rem;
+
+    font-size: 0.75rem;
+    font-family: $heading-font-family;
+    font-weight: 700;
+    text-decoration: none;
+
+    color: rgba(#fff, 0.8);
+
+    &:hover {
+      color: rgba(#fff, 1);
+    }
+  }
+
+  &__title {
+    margin: 1rem 0;
+  }
+
+  &__link {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  blockquote {
+    border-color: rgba(#fff, 0.5);
+  }
+
+  .post__tag {
+    border: 1px solid rgba(#fff, 0.3);
+    color: rgba(#fff, 0.8);
+  }
+
+}
+
+
+.site-byline {
+
+  margin: 0.5rem 0 3rem;
+
+  p {
+    margin: 0.25rem 0;
+  }
+
+  a {
+    color: #ddd;
+    &:hover {
+      color: $brand-color;
+    }
+  }
+}
+

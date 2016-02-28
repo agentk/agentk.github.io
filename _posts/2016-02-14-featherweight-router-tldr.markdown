@@ -2,12 +2,12 @@
 layout: post
 title:  "Featherweight Router tl;dr"
 date:   2016-02-14 15:44:24 +1100
+excerpt: "Overview of core classes in Featherweight Router."
 tags:
   - Terse
   - Code heavy
+background: greys
 ---
-
-> Overview of core classes in Featherweight Router.
 
 You don't want to read [background story](https://karlbowden.com/view-routing-concepts-in-ios/), it's very conceptual, and it's too long. This is the opinionated, essentials only version you are looking for.
 

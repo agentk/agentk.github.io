@@ -2,12 +2,12 @@
 layout: post
 title:  "View Routing Concepts in Swift"
 date:   2016-02-18 13:16:15 +1100
+excerpt: "Back story of view routing in Swift. All code is conceptual and intended to illustrate concepts only."
 tags:
   - Entry Level
   - Conceptual
+background: reds
 ---
-
-> Back story of view routing in Swift. All code is conceptual and intended to illustrate concepts only.
 
 It's uncommon to see a backend web framework without a router. It makes sense. The web is built around URL's that naturally branch out to routes.
 

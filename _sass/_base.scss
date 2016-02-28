@@ -1,13 +1,11 @@
 /*
 
-    Basic styling
+  Basic styling
 
 */
-body {
+html {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   color: $text-color;
-  margin: 0;
-  padding: 0 2em;
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -16,12 +14,36 @@ body {
   -o-font-feature-settings: "kern" 1;
   font-feature-settings: "kern" 1;
   font-kerning: normal;
+
+  @media only screen and (min-width: 480px) {
+    font-size: $base-font-size + 1px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    font-size: $base-font-size + 5px;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    font-size: $base-font-size + 6px;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    font-size: $base-font-size + 7px;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    font-size: $base-font-size + 8px;
+  }
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
 
 /*
 
-    Basic resets for HTML5 compatibility
+  Basic resets for HTML5 compatibility
 
 */
 header,
@@ -36,7 +58,7 @@ footer {
 
 /*
 
-    Text selection styling
+  Text selection styling
 
 */
 ::-moz-selection {
@@ -55,187 +77,168 @@ footer {
 
 /*
 
-    Set `margin-bottom` to maintain vertical rhythm
+  Set `margin-bottom` to maintain vertical rhythm
 
 */
-// h1, h2, h3, h4, h5, h6,
-// p, blockquote, pre,
-// ul, ol, dl, figure,
 %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+  margin-bottom: $spacing-unit / 2;
 }
 
 
 
 /*
 
-    Images
+  Images
 
 */
 img, svg, video {
-    border: 0;
-    max-width: 100%;
-    vertical-align: middle;
+  border: 0;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 svg:not(:root) {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 
 
 /*
 
-    Figures
+  Figures
 
 */
 figure {
-    margin-left: 0;
-    margin-right: 0;
+  margin-left: 0;
+  margin-right: 0;
 
-    > img {
-        display: block;
-    }
+  > img {
+    display: block;
+  }
 }
 
 figcaption {
-    font-size: $small-font-size;
+  font-size: $small-font-size;
 }
 
 
 
 /*
 
-    Lists
+  Lists
 
 */
 ul, ol {
-    padding-left: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 li {
-    padding: 0 0 1rem 0.5rem;
-    > ul,
-    > ol {
-         margin-bottom: 0;
-    }
+  padding: 0 0 1rem 0.5rem;
+
+  > ul, > ol {
+    margin-bottom: 0;
+  }
 }
 
 
 
 /*
 
-    Headings
+  Headings
 
 */
 h1 {
-    font-size: 2em;
+  font-size: 2em;
 }
+
 h1, h2, h3, h4, h5, h6 {
-    font-family: $heading-font-family;
-    margin: 2em 0 1em;
-    + h1, + h2, + h3, + h4, + h5, + h6 {
-        margin-top: 1em;
-    }
+  font-family: $heading-font-family;
+  font-weight: 700;
+  margin: 2em 0 1em;
+
+  + h1, + h2, + h3, + h4, + h5, + h6 {
+    margin-top: 1em;
+  }
 }
 
 
 
 /*
 
-    Block elements
+  Block elements
 
 */
 p {
-    margin: 1.5em 0;
+  margin: 1.5em 0;
 }
 
 
 /*
 
-    Links
+  Links
 
 */
 a {
-    color: $brand-color;
+  color: $brand-color;
 
-    &:active,
-    &:hover {
-        color: darken($brand-color, 15%);
-        outline: 0;
-    }
+  &:active,
+  &:hover {
+    color: darken($brand-color, 15%);
+    outline: 0;
+  }
 }
 
 
 
 /*
 
-    Blockquotes
+  Block quotes
 
 */
 blockquote {
-    border-left: 3px solid $text-color;
-    padding: 1px $spacing-unit / 2;
-    margin: 1.75em 0;
+  border-left: 3px solid $text-color;
+  padding: 1px $spacing-unit / 2;
+  margin: 1.75em 0;
 
-    padding: 0 0 3px 20px;
-    margin: 1.75em 0 1.75em -23px;
-    > :first-child {
-        margin-top: 0;
-    }
-    > :last-child {
-        margin-bottom: 0;
-    }
+  padding: 0 0 3px 20px;
+  margin: 1.75em 0 1.75em -23px;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
 }
 
 
 
 /*
 
-    Code formatting
+  Code formatting
 
 */
 pre,
 code {
-    border-radius: 3px;
-    background: #f6f6f6;
+  border-radius: 3px;
 }
 
 code {
-    border: 1px solid $grey-color-light;
-    color: $alt-color;
-    padding: 1px 4px;
-    word-break: break-word;
+  color: $alt-color;
+  padding: 0 4px;
+  word-break: break-word;
 }
 
 pre {
-    font-size: 15px;
-    padding: 8px 12px;
-    overflow-x: auto;
-    border: 1px solid $grey-color-light;
+  font-size: .714285714rem;
+  padding: 8px 0;
+  overflow-x: auto;
 
-    > code {
-        border: 0;
-        color: inherit;
-        padding: 0;
-        word-break: normal;
-    }
-}
-
-
-/*
-
-    Content resizing
-
-*/
-@media only screen and (min-width: 480px) {
-    body {
-        font-size: $base-font-size + 1px;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    body {
-        font-size: $base-font-size + 5px;
-    }
+  > code {
+    border: 0;
+    color: inherit;
+    padding: 0;
+    word-break: normal;
+  }
 }
